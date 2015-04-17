@@ -18,5 +18,7 @@ namespace SchoolsFeedback.Models
         {
         }
         public DbSet<Message> Messages { get; set; }
+
+        public System.Data.Entity.DbSet<SchoolsFeedback.Models.ApplicationUser> IdentityUsers { get; set; }
     }
 }
