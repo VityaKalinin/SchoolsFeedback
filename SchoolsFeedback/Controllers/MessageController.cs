@@ -56,7 +56,7 @@ namespace SchoolsFeedback.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.UserID = new SelectList(db.IdentityUsers, "Id", "UserName", message.UserID);
+            ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", message.UserID);
             return View(message);
         }
 
@@ -72,7 +72,7 @@ namespace SchoolsFeedback.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.UserID = new SelectList(db.IdentityUsers, "Id", "UserName", message.UserID);
+            ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", message.UserID);
             return View(message);
         }
 
@@ -89,7 +89,7 @@ namespace SchoolsFeedback.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserID = new SelectList(db.IdentityUsers, "Id", "UserName", message.UserID);
+            ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", message.UserID);
             return View(message);
         }
 

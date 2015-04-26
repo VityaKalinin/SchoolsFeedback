@@ -21,7 +21,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Отправить отзыв", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Отправить отзыв", "Create", "Message")</li>
                     <li>@Html.ActionLink("Мои запросы", "About", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -32,7 +32,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year &copy; Калинин Виктор</p>
+            <p>&copy; Калинин Виктор @DateTime.Now.Year </p>
         </footer>
     </div>
 
