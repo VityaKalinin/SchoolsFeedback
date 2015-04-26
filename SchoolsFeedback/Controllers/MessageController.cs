@@ -7,9 +7,12 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SchoolsFeedback.Models;
+using System.Security.Principal;
+using Microsoft.AspNet.Identity;
 
 namespace SchoolsFeedback.Controllers
 {
+    [Authorize]
     public class MessageController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -47,8 +50,11 @@ namespace SchoolsFeedback.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="ID,Theme,Text,Status,DateCreated,UserID")] Message message)
+        public ActionResult Create([Bind(Include="Theme,Text")] Message message)
         {
+            message.Status = "на рассмотрении";
+            message.DateCreated = DateTime.UtcNow;
+            message.UserID = HttpContext.User.Identity.GetUserId();
             if (ModelState.IsValid)
             {
                 db.Messages.Add(message);
@@ -56,7 +62,6 @@ namespace SchoolsFeedback.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.UserID = new SelectList(db.Users, "Id", "UserName", message.UserID);
             return View(message);
         }
 
