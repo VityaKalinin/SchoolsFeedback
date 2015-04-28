@@ -17,7 +17,9 @@ namespace SchoolsFeedback.Models
         [DisplayName("Запрос")]
         [Required]
         public string Text { get; set; }
+        [DisplayName("Статус")]
         public string Status{ get; set; }
+        [DisplayName("Дата создания")]
         public DateTime DateCreated { get; set; }
         public string UserID { get; set; }
         [ForeignKey("UserID")]

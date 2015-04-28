@@ -1,19 +1,17 @@
 ﻿@model IEnumerable<SchoolsFeedback.Models.Message>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Мои запросы";
 }
 
-<h2>Index</h2>
+<h2>Мои запросы</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Создать новый ", "Create")
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.User.UserName)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.Theme)
         </th>
@@ -31,9 +29,7 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.User.UserName)
-        </td>
+        
         <td>
             @Html.DisplayFor(modelItem => item.Theme)
         </td>
@@ -47,9 +43,8 @@
             @Html.DisplayFor(modelItem => item.DateCreated)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+           
+            @Html.ActionLink("Удалить", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
