@@ -60,7 +60,8 @@ namespace SchoolsFeedback.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Message message = db.Messages.Find(id);
-            if (message == null)
+            var loggedInId = User.Identity.GetUserId();
+            if (message == null || message.UserID != loggedInId)
             {
                 return HttpNotFound();
             }
