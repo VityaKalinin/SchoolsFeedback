@@ -20,7 +20,8 @@ namespace SchoolsFeedback.Controllers
         // GET: /Message/
         public ActionResult Index()
         {
-            var messages = db.Messages.Include(m => m.User);
+            var loggedInId = User.Identity.GetUserId();
+            var messages = db.Messages.Where(i => i.UserID == loggedInId);
             return View(messages.ToList());
         }
 
