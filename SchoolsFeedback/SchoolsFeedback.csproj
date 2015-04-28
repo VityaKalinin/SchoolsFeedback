@@ -221,8 +221,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Message\Create.cshtml" />
     <Content Include="Views\Message\Delete.cshtml" />
-    <Content Include="Views\Message\Details.cshtml" />
-    <Content Include="Views\Message\Edit.cshtml" />
     <Content Include="Views\Message\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
