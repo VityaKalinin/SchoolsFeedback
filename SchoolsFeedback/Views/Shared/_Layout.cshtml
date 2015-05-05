@@ -20,13 +20,15 @@
                 @Html.ActionLink("ПГИАII", "Index", "Home", null, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
                         <li>@Html.ActionLink("Отправить отзыв", "Create", "Message")</li>
                         <li>@Html.ActionLink("Мои запросы", "Index", "Message")</li>
-                    </ul>
-                }
+                    }
+                    <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
+                </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
