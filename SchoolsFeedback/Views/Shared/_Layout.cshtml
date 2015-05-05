@@ -23,9 +23,17 @@
                 <ul class="nav navbar-nav">
                     @if (User.Identity.IsAuthenticated)
                     {
+                        if (User.IsInRole("Administration")) 
+                        {
+                            <li>@Html.ActionLink("Все запросы", "AllMessages", "Administration")</li>  
+                        }
 
-                        <li>@Html.ActionLink("Отправить отзыв", "Create", "Message")</li>
-                        <li>@Html.ActionLink("Мои запросы", "Index", "Message")</li>
+                        else
+                        {
+
+                            <li>@Html.ActionLink("Отправить отзыв", "Create", "Message")</li>
+                            <li>@Html.ActionLink("Мои запросы", "Index", "Message")</li>
+                        }
                     }
                     <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
                 </ul>
