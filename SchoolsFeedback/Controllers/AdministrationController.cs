@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace SchoolsFeedback.Controllers
 {
-    public class AdminisrationController : Controller
+    public class AdministrationController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         //
@@ -18,6 +18,16 @@ namespace SchoolsFeedback.Controllers
             return View(messages);
         }
 
+        public ActionResult Details(int id)
+        {
+            var message = db.Messages.Find(id);
+            if (message == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(message);
+        }
 
 	}
 }

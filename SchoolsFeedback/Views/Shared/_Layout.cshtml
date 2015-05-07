@@ -23,7 +23,7 @@
                 <ul class="nav navbar-nav">
                     @if (User.Identity.IsAuthenticated)
                     {
-                        if (User.IsInRole("Administration")) 
+                        if (User.IsInRole("Administrator")) 
                         {
                             <li>@Html.ActionLink("Все запросы", "AllMessages", "Administration")</li>  
                         }
