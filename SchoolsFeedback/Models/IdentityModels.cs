@@ -19,5 +19,6 @@ namespace SchoolsFeedback.Models
         }
         public DbSet<Message> Messages { get; set; }
 
+
     }
 }

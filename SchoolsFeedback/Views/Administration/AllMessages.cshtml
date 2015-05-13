@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<SchoolsFeedback.Models.Message>
 
 @{
-    ViewBag.Title = "AllMessages";
+    ViewBag.Title = "Все запросы";
 }
 
-<h2>AllMessages</h2>
+<h2>Все запросы</h2>
 
 
 <table class="table">
@@ -39,9 +39,8 @@
             @Html.DisplayFor(modelItem => item.DateCreated)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Детали", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

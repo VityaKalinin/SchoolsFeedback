@@ -1,13 +1,12 @@
 ﻿@model SchoolsFeedback.Models.Message
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Детали";
 }
 
-<h2>Details</h2>
+<h2>Детали</h2>
 
 <div>
-    <h4>Message</h4>
 	<hr />
     <dl class="dl-horizontal">
         <dt>
@@ -53,10 +52,19 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Обратно к запросам", "AllMessages")
     <div class="btn-group">
-        <button type="button" class="btn btn-success">Принять</button>
-        <button type="button" class="btn btn-danger">Отклонить</button>
+        <button type="button" class="btn btn-success" id="accept">Принять</button>
+        <button type="button" class="btn btn-danger" id="reject">Отклонить</button>
     </div>
 </p>
+@section scripts{
+    <script>
+        $(function () {
+            $("#accept").click(function () {
+                $.post("@Url.Action("ProccessRequest")", { status:"ok", id:@Model.ID});
+                console.log("Smth good");
+            });
+        });
+    </script>
+    }
