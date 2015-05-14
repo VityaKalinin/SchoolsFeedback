@@ -29,6 +29,17 @@ namespace SchoolsFeedback.Controllers
 
             return View(message);
         }
-       
+
+        public ActionResult ProccessRequest(string status, int id)
+        {
+            var message = db.Messages.Find(id);
+            if (status == "ok")
+                message.Status = "Принято";
+            else if (status == "no")
+                message.Status = "Отклонено";
+
+            db.SaveChanges();
+            return JavaScript("location.reload(true)");
+        }
 	}
 }

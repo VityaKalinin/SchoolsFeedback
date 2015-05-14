@@ -54,8 +54,8 @@
 <p>
     @Html.ActionLink("Обратно к запросам", "AllMessages")
     <div class="btn-group">
-        <button type="button" class="btn btn-success" id="accept">Принять</button>
-        <button type="button" class="btn btn-danger" id="reject">Отклонить</button>
+        <button type="button" class="btn btn-success" id="accept" @if (Model.Status == "Принято") { @Html.Raw("disabled"); }>Принять</button>
+        <button type="button" class="btn btn-danger" id="reject" @if (Model.Status == "Отклонено") { @Html.Raw("disabled") ; }>Отклонить</button>
     </div>
 </p>
 @section scripts{
