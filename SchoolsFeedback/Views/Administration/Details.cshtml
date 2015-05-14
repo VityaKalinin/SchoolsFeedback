@@ -63,7 +63,9 @@
         $(function () {
             $("#accept").click(function () {
                 $.post("@Url.Action("ProccessRequest")", { status:"ok", id:@Model.ID});
-                console.log("Smth good");
+            });
+            $("#reject").click(function(){
+                $.post("@Url.Action("ProccessRequest")", {status:"no", id:@Model.ID});
             });
         });
     </script>
